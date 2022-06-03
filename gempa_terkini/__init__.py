@@ -37,7 +37,6 @@ def ektraksi_data():
         dirasakan = None
 
         for res in result:
-            print(i, res)
             if i == 1:
                 magnitudo = res.text
             elif i == 2:
@@ -76,8 +75,9 @@ def tampilkan_data(result):
     print(f"Kedalaman {result['kedalaman']}")
     print(f"koordinat: ls= {result['koordinat']['ls']} bt= {result['koordinat']['bt']}")
     print(f"Lokasi {result['lokasi']}")
-    print(f"Dirasakan {result['dirasakan']}")
+    print(f"{result['dirasakan']}")
 
-# if __name__ == "__main__":
-#     print('ini adalah package gempa terkini')
-#     print ('hai')
+
+if __name__ == "__main__":
+    result = ektraksi_data()
+    tampilkan_data(result)

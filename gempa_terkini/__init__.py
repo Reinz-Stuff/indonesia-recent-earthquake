@@ -11,13 +11,13 @@ def ektraksi_data():
         return None
     if content.status_code == 200:
         soup = BeautifulSoup(content.text, 'html.parser')
-        result = soup.find('span', {'class': 'waktu'})
-        result = result.text.split(', ')
-        tanggal = result[0]
-        waktu = result[1]
+        page = soup.find('span', {'class': 'waktu'})
+        page = page.text.split(', ')
+        tanggal = page[0]
+        waktu = page[1]
 
-        result = soup.find('div', {'class': 'col-md-6 col-xs-6 gempabumi-detail no-padding'})
-        result = result.findChildren('li')
+        page = soup.find('div', {'class': 'col-md-6 col-xs-6 gempabumi-detail no-padding'})
+        page = page.findChildren('li')
 
         i = 0
         magnitudo = None
@@ -27,7 +27,7 @@ def ektraksi_data():
         lokasi = None
         dirasakan = None
 
-        for res in result:
+        for res in page:
             if i == 1:
                 magnitudo = res.text
             elif i == 2:

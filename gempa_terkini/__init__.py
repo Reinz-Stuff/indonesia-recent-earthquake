@@ -1,19 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 
+description = 'to get the latest earthquake in Indonesia from BMGK.go.id'
+
 
 def ektraksi_data():
-    """
-    Tanggal       : 23 Mei 2022
-    Waktu         : 19:32:02 WIB
-    Magnitudo     : 4.9
-    Kedalaman     : 41 km
-    Lokasi        : LAT: 4.61 LON : 102.75
-    Pusat Gempa   : Pusat gempa berada di laut 25 km baratdaya Bengkulu Selatan
-    Dirasakan     : Dirasakan (Skala MMI): IV Manna, IV Argamakmur, IV Lampung Barat,
-                    III-IV Kepahiang, III-IV Kota Bengkulu.
-    :return:
-    """
     try:
         content = requests.get('https://www.bmkg.go.id/')
     except Exception:

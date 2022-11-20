@@ -73,5 +73,3 @@ if __name__ == "__main__":
     print('Deskripsi package', description)
     result = ektraksi_data()
     tampilkan_data(result)
-
-#add tags

@@ -10,13 +10,28 @@ Field/Attribute =      variable
 """
 
 
-class GempaTerkini:
-    def __init__(self, url):
-        self.description = 'to get the latest earthquake in Indonesia from BMGK.go.id'
+class Bencana:
+    def __init__(self, url, description):
+        self.description = description
         self.result = None
         self.url = url
 
-    def ektraksi_data(self):
+    def scraping_data(self):
+        pass
+
+    def tampilkan_data(self):
+        pass
+
+    def run(self):
+        self.scraping_data()
+        self.tampilkan_data()
+
+
+class GempaTerkini(Bencana):
+    def __init__(self, url):
+        super(GempaTerkini, self).__init__(url, 'to get the latest earthquake in Indonesia from BMGK.go.id')
+
+    def scraping_data(self):
         try:
             content = requests.get(self.url)
         except Exception:
@@ -79,9 +94,9 @@ class GempaTerkini:
         print(f"Lokasi {self.result['lokasi']}")
         print(f"{self.result['dirasakan']}")
 
-    def run(self):
-        self.ektraksi_data()
-        self.tampilkan_data()
+    # def run(self):
+    #     self.scraping_data()
+    #     self.tampilkan_data()
 
 
 if __name__ == "__main__":

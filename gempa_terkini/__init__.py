@@ -79,3 +79,5 @@ if __name__ == "__main__":
     gempa_di_indonesia = GempaTerkini()
     print('Deskripsi package', gempa_di_indonesia.description)
     gempa_di_indonesia.run()
+    # gempa_di_indonesia.ektraksi_data()
+    # gempa_di_indonesia.tampilkan_data()

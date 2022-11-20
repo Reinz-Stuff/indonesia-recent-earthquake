@@ -95,3 +95,5 @@ if __name__ == "__main__":
     gempa_di_dunia = GempaTerkini('https://www.bmkg.go.id')
     print('Deskripsi class', gempa_di_dunia.description)
     gempa_di_dunia.run()
+
+# self url

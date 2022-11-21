@@ -7,24 +7,37 @@ OOP            <->     Procedural
 obeject(class)
 Methode         =      Fungsi
 Field/Attribute =      variable
+Constructor = method yang pertama kali dipanggil saat object diciptakan. Gunakan untuk 
+              mendeklarasikan semua field pada class ini
 """
 
 
-class Bencana:
-    def __init__(self, url, description):
+class Bencana:  # class
+    def __init__(self, url, description):  # Methode
         self.description = description
         self.result = None
         self.url = url
 
+    def tampilkan_keterangan(self):
+        print(self.description)
+
     def scraping_data(self):
-        pass
+        print('Not yet implemented')
 
     def tampilkan_data(self):
-        pass
+        print('Not yet implemented')
 
     def run(self):
         self.scraping_data()
         self.tampilkan_data()
+
+
+class BanjirTerkini(Bencana):
+    def __init__(self, url):
+        super(BanjirTerkini, self).__init__(url, 'NOT YET IMPLEMENTED, but it shoud return last flood in Indonesia')
+
+    def tampilkan_keterangan(self):
+        print('UNDER CONSTRUCTION', self.description)
 
 
 class GempaTerkini(Bencana):
@@ -101,14 +114,19 @@ class GempaTerkini(Bencana):
 
 if __name__ == "__main__":
     gempa_di_indonesia = GempaTerkini('https://www.bmkg.go.id/')
-    print('Deskripsi class', gempa_di_indonesia.description)
+    gempa_di_indonesia.tampilkan_keterangan()
     gempa_di_indonesia.run()
     # gempa_di_indonesia.ektraksi_data()
     # gempa_di_indonesia.tampilkan_data()
 
-if __name__ == "__main__":
-    gempa_di_dunia = GempaTerkini('https://www.bmkg.go.id')
-    print('Deskripsi class', gempa_di_dunia.description)
-    gempa_di_dunia.run()
+    banjir_di_indonesia = BanjirTerkini('NOT YET')
+    banjir_di_indonesia.tampilkan_keterangan()
+    banjir_di_indonesia.run()
 
-# self url
+    daftar_bencana = [gempa_di_indonesia, banjir_di_indonesia]
+    print('\nSemua bencana yang ada')
+    for bencana in daftar_bencana:
+        bencana.tampilkan_keterangan()
+
+
+
